@@ -11,6 +11,10 @@
             --card-bg: #1e1e1e;
             --text-light: #f5f5f5;
             --text-gray: #a0a0a0;
+            --youtube-red: #ff0000;
+            --instagram-pink: #e1306c;
+            --facebook-blue: #1877f2;
+            --whatsapp-green: #25d366;
         }
 
         * {
@@ -66,6 +70,38 @@
             padding-bottom: 5px;
         }
 
+        /* ESTILOS DE LOS BOTONES DE REDES SOCIALES */
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .btn-social {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 30px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-social:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+
+        .btn-youtube { background-color: var(--youtube-red); }
+        .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .btn-facebook { background-color: var(--facebook-blue); }
+        .btn-whatsapp { background-color: var(--whatsapp-green); color: #fff; }
+
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -113,11 +149,15 @@
             border-left: 4px solid var(--primary-orange);
         }
 
+        .contact-phones p {
+            margin-bottom: 8px;
+        }
+
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
             color: var(--text-gray);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             border-top: 1px solid #222;
         }
     </style>
@@ -128,6 +168,13 @@
         <h1>Les Enfants Terribles</h1>
         <div class="subtitle">JAZZ MANOUCHE / GYPSY JAZZ</div>
         <p>El primer estilo de jazz nacido fuera de EE. UU., adaptado a la tradición de cuerdas.</p>
+        
+        <!-- BOTONES RÁPIDOS EN LA PORTADA -->
+        <div class="social-buttons" style="justify-content: center; margin-top: 25px;">
+            <a href="https://youtube.com/@lesenfantsterriblesmx?si=7rE72riA1RnTiIXg" target="_blank" rel="noopener noreferrer" class="btn-social btn-youtube">YouTube</a>
+            <a href="https://www.instagram.com/enfantsterribles.mx?stkn=NGZhbG94cWJoanU2&utm_source=qr" target="_blank" rel="noopener noreferrer" class="btn-social btn-instagram">Instagram</a>
+            <a href="https://www.facebook.com/share/1DL2nrAd12/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-social btn-facebook">Facebook</a>
+        </div>
     </header>
 
     <div class="container">
@@ -143,21 +190,18 @@
             <h2>Integrantes</h2>
             <div class="grid-3">
                 <div class="card">
-                    <!-- Imagen de Saúl Martínez en la carpeta sing -->
                     <img src="sing/IMG_2732.jpeg" alt="Saúl Martínez" class="card-img-photo">
                     <h3>Saúl Martínez</h3>
                     <p style="color: var(--primary-orange); font-size: 0.9rem;">Guitarra / Gestión</p>
                     <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Egresado del Conservatorio de Música del Estado de México. Especialista en improvisación, arreglos y docente de jazz tradicional.</p>
                 </div>
                 <div class="card">
-                    <!-- Imagen de David Rojas en la carpeta sing -->
                     <img src="sing/IMG_2854.jpeg" alt="David Rojas" class="card-img-photo">
                     <h3>David Rojas</h3>
                     <p style="color: var(--primary-orange); font-size: 0.9rem;">Guitarra</p>
                     <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Guitarrista originario de la CDMX, alimentado por el jazz, blues y la música popular en vivo.</p>
                 </div>
                 <div class="card">
-                    <!-- Imagen de André Izquierdo en la carpeta sing -->
                     <img src="sing/6598e567-1615-47e3-b30a-bb2738c7a955.jpeg" alt="André Izquierdo" class="card-img-photo">
                     <h3>André Izquierdo</h3>
                     <p style="color: var(--primary-orange); font-size: 0.9rem;">Contrabajo</p>
@@ -177,14 +221,38 @@
             </ul>
         </section>
 
+        <!-- REDES SOCIALES -->
+        <section>
+            <h2>Síguenos en Redes</h2>
+            <p style="margin-bottom: 15px; color: var(--text-gray);">Escucha nuestras interpretaciones, fechas de próximos conciertos y contenido exclusivo:</p>
+            <div class="social-buttons">
+                <a href="https://youtube.com/@lesenfantsterriblesmx?si=7rE72riA1RnTiIXg" target="_blank" rel="noopener noreferrer" class="btn-social btn-youtube">
+                    ▶ YouTube
+                </a>
+                <a href="https://www.instagram.com/enfantsterribles.mx?stkn=NGZhbG94cWJoanU2&utm_source=qr" target="_blank" rel="noopener noreferrer" class="btn-social btn-instagram">
+                    📷 Instagram
+                </a>
+                <a href="https://www.facebook.com/share/1DL2nrAd12/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" class="btn-social btn-facebook">
+                    👍 Facebook
+                </a>
+            </div>
+        </section>
+
         <!-- CONTACTO & BOOKING -->
         <section>
             <h2>Contacto & Booking</h2>
             <div class="contact-box">
-                <p><strong>Contrataciones y Talleres:</strong></p>
-                <p>📍 Saúl Martínez: (55) 7324 4982</p>
-                <p>📍 David Rojas: (33) 4463 8249</p>
-                <p>📍 André Izquierdo: (55) 2539 5351</p>
+                <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>Contrataciones, Fechas y Talleres:</strong></p>
+                <div class="contact-phones">
+                    <p>📍 <strong>Saúl Martínez:</strong> (55) 7324 4982</p>
+                    <p>📍 <strong>David Rojas:</strong> (33) 4463 8249</p>
+                    <p>📍 <strong>André Izquierdo:</strong> (55) 2539 5351</p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <a href="https://wa.me/525573244982?text=Hola,%20me%20gustaría%20obtener%20información%20para%20contratar%20a%20Les%20Enfants%20Terribles" target="_blank" class="btn-social btn-whatsapp">
+                        💬 Contactar por WhatsApp
+                    </a>
+                </div>
             </div>
         </section>
 

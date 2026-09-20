@@ -3,32 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enfants Terribles MX</title>
+    <title>Les Enfants Terribles | Jazz Manouche</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #111;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        :root {
+            --primary-orange: #ff5500;
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --text-light: #f5f5f5;
+            --text-gray: #a0a0a0;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
             text-align: center;
+            padding: 80px 20px 40px;
+            background: linear-gradient(180deg, #000 0%, var(--bg-dark) 100%);
         }
+
         h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            color: #fff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
-        p {
-            color: #888;
+
+        .subtitle {
+            color: var(--primary-orange);
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary-orange);
+            display: inline-block;
+            margin-bottom: 20px;
+            padding-bottom: 5px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        .card-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-orange);
+            margin: 0 auto 15px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .festivals-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .festivals-list li {
+            background: #252525;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #444;
+        }
+
+        .contact-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-orange);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-orange);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+            border-top: 1px solid #222;
         }
     </style>
 </head>
 <body>
-    <div>
-        <h1>ENFANTS TERRIBLES MX</h1>
-        <p>Sitio web en construcción.</p>
+
+    <header>
+        <h1>Les Enfants Terribles</h1>
+        <div class="subtitle">JAZZ MANOUCHE / GYPSY JAZZ</div>
+        <p>El primer estilo de jazz nacido fuera de EE. UU., adaptado a la tradición de cuerdas.</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- ACERCA DE -->
+        <section>
+            <h2>Acerca del Proyecto</h2>
+            <p>Surgido en Francia en los años 30 con Django Reinhardt y Stéphane Grappelli, el Jazz Manouche fusiona el swing americano con la tradición gitana europea. <strong>Les Enfants Terribles</strong>, liderado por Saúl Martínez, explora y difunde este género rindiendo homenaje a sus raíces e incorporando nuevas influencias contemporáneas.</p>
+        </section>
+
+        <!-- INTEGRANTES -->
+        <section>
+            <h2>Integrantes</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>Saúl Martínez</h3>
+                    <p style="color: var(--primary-orange); font-size: 0.9rem;">Guitarra / Gestión</p>
+                    <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Egresado del Conservatorio de Música del Estado de México. Especialista en improvisación, arreglos y docente de jazz tradicional.</p>
+                </div>
+                <div class="card">
+                    <h3>David Rojas</h3>
+                    <p style="color: var(--primary-orange); font-size: 0.9rem;">Guitarra</p>
+                    <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Guitarrista originario de la CDMX, alimentado por el jazz, blues y la música popular en vivo.</p>
+                </div>
+                <div class="card">
+                    <h3>André Izquierdo</h3>
+                    <p style="color: var(--primary-orange); font-size: 0.9rem;">Contrabajo</p>
+                    <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Bajista autodidacta de Xochimilco. Ha colaborado en proyectos de salsa, flamenco, balkan y con la Orquesta Filarmónica Mexiquense.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRAYECTORIA -->
+        <section>
+            <h2>Festivales y Presentaciones</h2>
+            <ul class="festivals-list">
+                <li>Festival Internacional Quimera</li>
+                <li>Festival Internacional de la Guitarra (Zihuatanejo)</li>
+                <li>Festival de Jazz Manouche Morelia</li>
+                <li>Feria del Libro y Jazz en Xalatlaco</li>
+            </ul>
+        </section>
+
+        <!-- CONTACTO & BOOKING -->
+        <section>
+            <h2>Contacto & Booking</h2>
+            <div class="contact-box">
+                <p><strong>Contrataciones y Talleres:</strong></p>
+                <p>📍 Saúl Martínez: (55) 7324 4982</p>
+                <p>📍 David Rojas: (33) 4463 8249</p>
+                <p>📍 André Izquierdo: (55) 2539 5351</p>
+            </div>
+        </section>
+
     </div>
+
+    <footer>
+        <p>&copy; 2026 Les Enfants Terribles - Jazz Manouche México.</p>
+    </footer>
+
 </body>
 </html>

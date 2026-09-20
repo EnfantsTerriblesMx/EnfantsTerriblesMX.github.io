@@ -52,6 +52,30 @@
             margin-bottom: 20px;
         }
 
+        /* REPRODUCTOR DE AUDIO */
+        .audio-player-container {
+            background: var(--card-bg);
+            border: 1px solid var(--primary-orange);
+            border-radius: 12px;
+            padding: 15px 20px;
+            max-width: 450px;
+            margin: 25px auto 0;
+            box-shadow: 0 4px 15px rgba(255, 85, 0, 0.15);
+        }
+
+        .audio-player-container p {
+            font-size: 0.9rem;
+            color: var(--primary-orange);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        audio {
+            width: 100%;
+            height: 40px;
+            border-radius: 8px;
+        }
+
         .container {
             max-width: 1000px;
             margin: 0 auto;
@@ -70,7 +94,6 @@
             padding-bottom: 5px;
         }
 
-        /* ESTILOS DE LOS BOTONES DE REDES SOCIALES */
         .social-buttons {
             display: flex;
             flex-wrap: wrap;
@@ -169,6 +192,15 @@
         <div class="subtitle">JAZZ MANOUCHE / GYPSY JAZZ</div>
         <p>El primer estilo de jazz nacido fuera de EE. UU., adaptado a la tradición de cuerdas.</p>
         
+        <!-- REPRODUCTOR DE MÚSICA -->
+        <div class="audio-player-container">
+            <p>🎵 Escucha un demo en vivo:</p>
+            <audio controls preload="metadata">
+                <source src="music/Alkoholowa Nuda - Dakkan.mp3" type="audio/mpeg">
+                Tu navegador no soporta la reproducción de audio.
+            </audio>
+        </div>
+
         <!-- BOTONES RÁPIDOS EN LA PORTADA -->
         <div class="social-buttons" style="justify-content: center; margin-top: 25px;">
             <a href="https://youtube.com/@lesenfantsterriblesmx?si=7rE72riA1RnTiIXg" target="_blank" rel="noopener noreferrer" class="btn-social btn-youtube">YouTube</a>

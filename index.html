@@ -81,14 +81,14 @@
             border: 1px solid #333;
         }
 
-        .card-img {
-            width: 130px;
-            height: 130px;
+        .card-img-photo {
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
+            object-fit: cover;
             border: 3px solid var(--primary-orange);
             margin: 0 auto 15px;
-            background-size: cover;
-            background-position: center;
+            display: block;
         }
 
         .festivals-list {
@@ -111,17 +111,6 @@
             padding: 25px;
             border-radius: 8px;
             border-left: 4px solid var(--primary-orange);
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary-orange);
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
         }
 
         footer {
@@ -154,16 +143,22 @@
             <h2>Integrantes</h2>
             <div class="grid-3">
                 <div class="card">
+                    <!-- Imagen de Saúl Martínez en la carpeta sing -->
+                    <img src="sing/IMG_2732.jpeg" alt="Saúl Martínez" class="card-img-photo">
                     <h3>Saúl Martínez</h3>
                     <p style="color: var(--primary-orange); font-size: 0.9rem;">Guitarra / Gestión</p>
                     <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Egresado del Conservatorio de Música del Estado de México. Especialista en improvisación, arreglos y docente de jazz tradicional.</p>
                 </div>
                 <div class="card">
+                    <!-- Imagen de David Rojas en la carpeta sing -->
+                    <img src="sing/IMG_2854.jpeg" alt="David Rojas" class="card-img-photo">
                     <h3>David Rojas</h3>
                     <p style="color: var(--primary-orange); font-size: 0.9rem;">Guitarra</p>
                     <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Guitarrista originario de la CDMX, alimentado por el jazz, blues y la música popular en vivo.</p>
                 </div>
                 <div class="card">
+                    <!-- Imagen de André Izquierdo en la carpeta sing -->
+                    <img src="sing/6598e567-1615-47e3-b30a-bb2738c7a955.jpeg" alt="André Izquierdo" class="card-img-photo">
                     <h3>André Izquierdo</h3>
                     <p style="color: var(--primary-orange); font-size: 0.9rem;">Contrabajo</p>
                     <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Bajista autodidacta de Xochimilco. Ha colaborado en proyectos de salsa, flamenco, balkan y con la Orquesta Filarmónica Mexiquense.</p>

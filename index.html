@@ -15,6 +15,7 @@
             --instagram-pink: #e1306c;
             --facebook-blue: #1877f2;
             --whatsapp-green: #25d366;
+            --pdf-red: #d32f2f;
         }
 
         * {
@@ -124,6 +125,7 @@
         .btn-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .btn-facebook { background-color: var(--facebook-blue); }
         .btn-whatsapp { background-color: var(--whatsapp-green); color: #fff; }
+        .btn-pdf { background-color: var(--pdf-red); color: #fff; }
 
         .grid-3 {
             display: grid;
@@ -163,6 +165,18 @@
             border-radius: 20px;
             font-size: 0.9rem;
             border: 1px solid #444;
+        }
+
+        /* SECCIÓN DEL PDF */
+        .pdf-box {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
         }
 
         .contact-box {
@@ -251,6 +265,18 @@
                 <li>Festival de Jazz Manouche Morelia</li>
                 <li>Feria del Libro y Jazz en Xalatlaco</li>
             </ul>
+        </section>
+
+        <!-- ÁREA PARA PROMOTORES / PRESS KIT EN PDF -->
+        <section>
+            <h2>Para Promotores & Festivales</h2>
+            <div class="pdf-box">
+                <p style="color: var(--text-light);">Descarga o consulta en línea el Dossier / Press Kit oficial de la agrupación que incluye la semblanza completa, trayectoria y el <strong>Rider Técnico</strong> (Input List, Requerimientos de Escenario e Iluminación).</p>
+                
+                <a href="sing/Pk-LET-Trío-Septiembre 2026.pdf" target="_blank" rel="noopener noreferrer" class="btn-social btn-pdf">
+                    📄 Abrir / Descargar Press Kit (PDF)
+                </a>
+            </div>
         </section>
 
         <!-- REDES SOCIALES -->

@@ -9,8 +9,10 @@
             --primary-orange: #ff5500;
             --bg-dark: #121212;
             --card-bg: #1e1e1e;
+            --card-hover: #262626;
             --text-light: #f5f5f5;
             --text-gray: #a0a0a0;
+            --border-color: #333333;
             --youtube-red: #ff0000;
             --instagram-pink: #e1306c;
             --facebook-blue: #1877f2;
@@ -24,6 +26,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-dark);
@@ -31,9 +37,56 @@
             line-height: 1.6;
         }
 
+        /* NAVEGACIÓN SUPERIOR */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 12px 20px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            color: var(--primary-orange);
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-orange);
+        }
+
         header {
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 60px 20px 40px;
             background: linear-gradient(180deg, #000 0%, var(--bg-dark) 100%);
         }
 
@@ -84,7 +137,8 @@
         }
 
         section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            scroll-margin-top: 70px;
         }
 
         h2 {
@@ -114,6 +168,8 @@
             font-size: 1rem;
             transition: transform 0.2s ease, opacity 0.2s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
         }
 
         .btn-social:hover {
@@ -139,7 +195,7 @@
             border-radius: 10px;
             padding: 20px;
             text-align: center;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
         }
 
         .card-img-photo {
@@ -152,6 +208,188 @@
             display: block;
         }
 
+        /* SECCIÓN DE VIDEOS */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .video-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            color: #fff;
+        }
+
+        .video-info p {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* SECCIÓN DE BLOG */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .blog-card {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary-orange);
+        }
+
+        .blog-tag {
+            display: inline-block;
+            background: rgba(255, 85, 0, 0.15);
+            color: var(--primary-orange);
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .blog-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .blog-card p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: #777;
+        }
+
+        /* COTIZADOR */
+        .quote-box {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            background: #121212;
+            border: 1px solid #444;
+            color: var(--text-light);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .form-group select:focus {
+            border-color: var(--primary-orange);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #181818;
+            padding: 10px 14px;
+            border-radius: 6px;
+            border: 1px solid #292929;
+            cursor: pointer;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            accent-color: var(--primary-orange);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .quote-result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #141414;
+            border: 1px dashed var(--primary-orange);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .quote-total {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--primary-orange);
+            margin: 10px 0;
+        }
+
+        .quote-disclaimer {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+        }
+
+        /* FESTIVALES Y PDF */
         .festivals-list {
             list-style: none;
             display: flex;
@@ -167,12 +405,11 @@
             border: 1px solid #444;
         }
 
-        /* SECCIÓN DEL PDF */
         .pdf-box {
             background: var(--card-bg);
             padding: 25px;
             border-radius: 10px;
-            border: 1px solid #333;
+            border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -197,9 +434,30 @@
             font-size: 0.85rem;
             border-top: 1px solid #222;
         }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.1rem; }
+            .nav-container { flex-direction: column; align-items: flex-start; }
+            .quote-total { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">LES ENFANTS TERRIBLES</a>
+            <ul class="nav-links">
+                <li><a href="#acerca">Acerca</a></li>
+                <li><a href="#integrantes">Integrantes</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#cotizador">Cotizador</a></li>
+                <li><a href="#blog">Notas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <header>
         <h1>Les Enfants Terribles</h1>
@@ -226,13 +484,51 @@
     <div class="container">
         
         <!-- ACERCA DE -->
-        <section>
+        <section id="acerca">
             <h2>Acerca del Proyecto</h2>
             <p>Surgido en Francia en los años 30 con Django Reinhardt y Stéphane Grappelli, el Jazz Manouche fusiona el swing americano con la tradición gitana europea. <strong>Les Enfants Terribles</strong>, liderado por Saúl Martínez, explora y difunde este género rindiendo homenaje a sus raíces e incorporando nuevas influencias contemporáneas.</p>
         </section>
 
+        <!-- VIDEOS / EN VIVO -->
+        <section id="videos">
+            <h2>Videos & Sesiones en Vivo</h2>
+            <p style="color: var(--text-gray); margin-bottom: 20px;">Conoce nuestra energía en el escenario, la soltura acústica y la calidad de nuestro repertorio.</p>
+            
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <!-- Sustituye el ID del video si deseas uno específico -->
+                        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=@lesenfantsterriblesmx" title="Les Enfants Terribles en Vivo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Sesión en Vivo / Concierto</h3>
+                        <p>Interpretación del repertorio tradicional de Gypsy Jazz con arreglo de cuerdas acústicas.</p>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <!-- Enlace a canal/video representativo -->
+                        <iframe src="https://www.youtube.com/embed?listType=user_uploads&list=@lesenfantsterriblesmx" title="Les Enfants Terribles Acústico" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Set Acústico & Festivales</h3>
+                        <p>Ambiente ideal para recepción, cóctel o escenarios culturales.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="https://youtube.com/@lesenfantsterriblesmx?si=7rE72riA1RnTiIXg" target="_blank" rel="noopener noreferrer" class="btn-social btn-youtube">
+                    Ver más videos en nuestro canal de YouTube
+                </a>
+            </div>
+        </section>
+
         <!-- INTEGRANTES -->
-        <section>
+        <section id="integrantes">
             <h2>Integrantes</h2>
             <div class="grid-3">
                 <div class="card">
@@ -253,6 +549,110 @@
                     <p style="color: var(--primary-orange); font-size: 0.9rem;">Contrabajo</p>
                     <p style="font-size: 0.85rem; color: var(--text-gray); margin-top: 10px;">Bajista autodidacta de Xochimilco. Ha colaborado en proyectos de salsa, flamenco, balkan y con la Orquesta Filarmónica Mexiquense.</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- COTIZADOR INTERACTIVO -->
+        <section id="cotizador">
+            <h2>Cotizador Rápido para Eventos</h2>
+            <p style="color: var(--text-gray); margin-bottom: 20px;">Calcula un presupuesto estimado para tu boda, fiesta privada, festival o evento corporativo en pocos clics.</p>
+
+            <div class="quote-box">
+                <form id="quoteForm">
+                    <div class="form-group">
+                        <label for="tipoEvento">Tipo de Evento:</label>
+                        <select id="tipoEvento">
+                            <option value="Boda / Recepción">Boda o Recepción</option>
+                            <option value="Evento Corporativo">Evento Corporativo / Empresarial</option>
+                            <option value="Fiesta Privada">Fiesta Privada / Aniversario</option>
+                            <option value="Festival o Foro Cultural">Festival o Foro Cultural</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alineacion">Formato del Grupo:</label>
+                        <!-- Ajusta los valores numéricos base en MXN a tus tarifas reales -->
+                        <select id="alineacion">
+                            <option value="12000">Dúo de Guitarras Manouche ($12,000 base)</option>
+                            <option value="16000" selected>Trío Oficial (2 Guitarras + Contrabajo) ($16,000 base)</option>
+                            <option value="21000">Cuarteto (Trío + Violín o Clarinete invitado) ($21,000 base)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duracion">Duración del Concierto:</label>
+                        <select id="duracion">
+                            <option value="1">1 Set (50 minutos)</option>
+                            <option value="1.7" selected>2 Sets (100 minutos en total)</option>
+                            <option value="2.3">3 Sets (150 minutos en total)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Servicios Opcionales:</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="audio" value="4500">
+                                <span>Incluir Sistema de Audio e Iluminación acústica (hasta 120 personas) (+ $4,500)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="cancionEspecial" value="1500">
+                                <span>Arreglo exclusivo de una canción especial fuera de repertorio (+ $1,500)</span>
+                            </label>
+                            <label class="checkbox-item">
+                                <input type="checkbox" id="viaticos" value="3000">
+                                <span>Evento fuera de CDMX / Área Metropolitana (Viáticos base estimados + $3,000)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quote-result">
+                        <p style="text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; color: #bbb;">Presupuesto Estimado</p>
+                        <div class="quote-total" id="totalDisplay">$0 MXN</div>
+                        <p class="quote-disclaimer">*Este monto es una estimación referencial. La cotización final depende de la fecha exacta, logística y requerimientos técnicos del recinto.</p>
+                        <button type="button" onclick="contactarCotizacion()" class="btn-social btn-whatsapp">
+                            💬 Enviar esta Cotización por WhatsApp
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE BLOG / NOTAS -->
+        <section id="blog">
+            <h2>Blog & Artículos</h2>
+            <p style="color: var(--text-gray); margin-bottom: 20px;">Descubre más sobre la historia del Gypsy Jazz, consejos para tu evento y novedades del grupo.</p>
+
+            <div class="blog-grid">
+                <!-- Artículo 1 -->
+                <article class="blog-card">
+                    <div>
+                        <span class="blog-tag">Guía de Eventos</span>
+                        <h3>Por qué elegir Jazz Manouche para tu Boda o Evento</h3>
+                        <p>A diferencia de una banda con batería que puede aturdir a los invitados durante la cena o recepción, las cuerdas manouche aportan elegancia, swing y volumen acústico equilibrado.</p>
+                    </div>
+                    <span class="blog-date">Lectura de 3 min</span>
+                </article>
+
+                <!-- Artículo 2 -->
+                <article class="blog-card">
+                    <div>
+                        <span class="blog-tag">Historia & Género</span>
+                        <h3>Django Reinhardt y el Sonido de París de los Años 30</h3>
+                        <p>Cómo un guitarrista con solo dos dedos útiles en su mano izquierda creó junto al violinista Stéphane Grappelli la corriente de jazz más influyente de Europa.</p>
+                    </div>
+                    <span class="blog-date">Lectura de 4 min</span>
+                </article>
+
+                <!-- Artículo 3 -->
+                <article class="blog-card">
+                    <div>
+                        <span class="blog-tag">Rider & Técnica</span>
+                        <h3>¿Qué necesita un trío acústico para sonar bien en vivo?</h3>
+                        <p>Los secretos de la microfonía para instrumentos acústicos: por qué evitamos la saturación y priorizamos la dinámica natural de la madera y el contrabajo.</p>
+                    </div>
+                    <span class="blog-date">Lectura de 3 min</span>
+                </article>
             </div>
         </section>
 
@@ -298,7 +698,7 @@
         </section>
 
         <!-- CONTACTO & BOOKING -->
-        <section>
+        <section id="contacto">
             <h2>Contacto & Booking</h2>
             <div class="contact-box">
                 <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>Contrataciones, Fechas y Talleres:</strong></p>
@@ -320,6 +720,57 @@
     <footer>
         <p>&copy; 2026 Les Enfants Terribles - Jazz Manouche México.</p>
     </footer>
+
+    <!-- SCRIPT DEL COTIZADOR -->
+    <script>
+        function calcularTotal() {
+            const baseFormato = parseFloat(document.getElementById('alineacion').value) || 0;
+            const factorDuracion = parseFloat(document.getElementById('duracion').value) || 1;
+            
+            const extraAudio = document.getElementById('audio').checked ? parseFloat(document.getElementById('audio').value) : 0;
+            const extraCancion = document.getElementById('cancionEspecial').checked ? parseFloat(document.getElementById('cancionEspecial').value) : 0;
+            const extraViaticos = document.getElementById('viaticos').checked ? parseFloat(document.getElementById('viaticos').value) : 0;
+
+            const total = Math.round((baseFormato * factorDuracion) + extraAudio + extraCancion + extraViaticos);
+            
+            document.getElementById('totalDisplay').textContent = '$' + total.toLocaleString('es-MX') + ' MXN';
+            return total;
+        }
+
+        // Recalcular en cada cambio del formulario
+        document.querySelectorAll('#quoteForm select, #quoteForm input').forEach(input => {
+            input.addEventListener('change', calcularTotal);
+        });
+
+        // Calcular valor inicial al cargar la página
+        calcularTotal();
+
+        // Enviar resumen estructurado por WhatsApp
+        function contactarCotizacion() {
+            const total = calcularTotal();
+            const tipoEvento = document.getElementById('tipoEvento').value;
+            const formatoTexto = document.getElementById('alineacion').options[document.getElementById('alineacion').selectedIndex].text.split('(')[0].trim();
+            const duracionTexto = document.getElementById('duracion').options[document.getElementById('duracion').selectedIndex].text;
+            
+            let extras = [];
+            if (document.getElementById('audio').checked) extras.push("Audio/Iluminación");
+            if (document.getElementById('cancionEspecial').checked) extras.push("Arreglo especial");
+            if (document.getElementById('viaticos').checked) extras.push("Fuera de CDMX");
+            const extrasTexto = extras.length > 0 ? extras.join(', ') : 'Ninguno';
+
+            const mensaje = `¡Hola Saúl! Realicé una cotización estimada en su sitio web para Les Enfants Terribles:
+- Tipo de evento: ${tipoEvento}
+- Formato: ${formatoTexto}
+- Duración: ${duracionTexto}
+- Adicionales: ${extrasTexto}
+- Presupuesto estimado web: $${total.toLocaleString('es-MX')} MXN
+
+¿Tienen disponibilidad en su calendario para revisar detalles?`;
+
+            const url = `https://wa.me/525573244982?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 
 </body>
 </html>

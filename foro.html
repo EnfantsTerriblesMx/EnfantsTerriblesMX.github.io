@@ -1,83 +1,265 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Foro y Comunidad | Les Enfants Terribles</title>
-  <!-- Enlaza aquí la misma hoja de estilos CSS que usas en tu index.html -->
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .foro-container {
-      max-width: 900px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-    }
-    .foro-header {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid #333;
-      padding-bottom: 1rem;
-    }
-    .foro-reglas {
-      background: rgba(255, 255, 255, 0.05);
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      font-size: 0.95rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foro & Comunidad Manouche | Les Enfants Terribles</title>
+    <style>
+        :root {
+            --primary-orange: #ff5500;
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --card-hover: #262626;
+            --text-light: #f5f5f5;
+            --text-gray: #a0a0a0;
+            --border-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* NAVEGACIÓN SUPERIOR */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 12px 20px;
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            color: var(--primary-orange);
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-orange);
+            font-weight: bold;
+        }
+
+        /* CABECERA DEL FORO */
+        header {
+            text-align: center;
+            padding: 50px 20px 30px;
+            background: linear-gradient(180deg, #000 0%, var(--bg-dark) 100%);
+        }
+
+        h1 {
+            font-size: 2.3rem;
+            letter-spacing: 2px;
+            color: #fff;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            color: var(--primary-orange);
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            max-width: 680px;
+            margin: 0 auto;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .container {
+            max-width: 950px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .forum-box {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .forum-notice {
+            background: #161616;
+            border-left: 4px solid var(--primary-orange);
+            padding: 15px 18px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .forum-notice strong {
+            color: var(--text-light);
+        }
+
+        .forum-notice a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .forum-notice a:hover {
+            text-decoration: underline;
+        }
+
+        .forum-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--primary-orange);
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-orange);
+            color: #fff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            border-top: 1px solid #222;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .nav-container { flex-direction: column; align-items: flex-start; }
+            .forum-box { padding: 18px; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Barra de navegación (misma de tu portada) -->
-  <nav>
-    <div>
-      <a href="index.html">LES ENFANTS TERRIBLES</a>
-      <ul>
-        <li><a href="index.html#acerca">Acerca</a></li>
-        <li><a href="index.html#integrantes">Integrantes</a></li>
-        <li><a href="index.html#videos">Videos</a></li>
-        <li><a href="index.html#cotizador">Cotizador</a></li>
-        <li><a href="index.html#blog">Notas</a></li>
-        <li><a href="foro.html">Foro</a></li>
-        <li><a href="index.html#contacto">Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">LES ENFANTS TERRIBLES</a>
+            <ul class="nav-links">
+                <li><a href="index.html#acerca">Acerca</a></li>
+                <li><a href="index.html#integrantes">Integrantes</a></li>
+                <li><a href="index.html#videos">Videos</a></li>
+                <li><a href="index.html#cotizador">Cotizador</a></li>
+                <li><a href="index.html#blog">Notas</a></li>
+                <li><a href="foro.html" class="active">Foro</a></li>
+                <li><a href="index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <main class="foro-container">
-    <header class="foro-header">
-      <h1>Comunidad Jazz Manouche México</h1>
-      <p>Espacio abierto para músicos, alumnos de talleres y amantes del Gypsy Jazz. Comparte dudas de técnica, repertorio, luthería o eventos.</p>
+    <header>
+        <div class="subtitle">COMUNIDAD & DISCUSIÓN</div>
+        <h1>Foro Gypsy Jazz México</h1>
+        <p>Un punto de encuentro para guitarristas, contrabajistas, violinistas, alumnos de nuestros talleres y aficionados al Jazz Manouche.</p>
     </header>
 
-    <div class="foro-reglas">
-      <strong>¿Cómo participar?</strong> Inicia sesión con tu cuenta gratuita de GitHub en el recuadro de abajo para publicar, responder o reaccionar. También puedes explorar todas las categorías directamente en <a href="https://github.com/TU-USUARIO/TU-REPOSITORIO/discussions" target="_blank" rel="noopener noreferrer">nuestro tablero de discusiones</a>.
-    </div>
+    <main class="container">
+        <div class="forum-box">
+            <div class="forum-actions">
+                <a href="index.html" class="btn-outline">← Volver a la portada</a>
+                <a href="https://github.com/Enfantsterriblesmx/foro-enfants-terribles/discussions" target="_blank" rel="noopener noreferrer" class="btn-outline">
+                    Ver todas las categorías en GitHub ↗
+                </a>
+            </div>
 
-    <!-- Contenedor donde se renderiza el foro -->
-    <section class="giscus-wrapper">
-      <!-- PEGA AQUÍ EL CÓDIGO <script> QUE GENERASTE EN GISCUS.APP -->
-      <script src="https://giscus.app/client.js"
-        data-repo="TU-USUARIO/TU-REPOSITORIO"
-        data-repo-id="TU_REPO_ID"
-        data-category="General"
-        data-category-id="TU_CATEGORY_ID"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="es"
-        crossorigin="anonymous"
-        async>
-      </script>
-    </section>
-  </main>
+            <div class="forum-notice">
+                <strong>¿Cómo participar?</strong> Inicia sesión con tu cuenta gratuita de GitHub en el recuadro de abajo para dejar tus comentarios, compartir <em>backing tracks</em>, preguntar sobre técnica de la <em>pompe</em> o proponer temas. Si deseas abrir un hilo independiente con título propio, haz clic en <strong>"Ver todas las categorías en GitHub"</strong>.
+            </div>
 
-  <footer>
-    <p>© 2026 Les Enfants Terribles - Jazz Manouche México.</p>
-  </footer>
+            <!-- WIDGET DE FORO GISCUS -->
+            <script src="https://giscus.app/client.js"
+                data-repo="Enfantsterriblesmx/foro-enfants-terribles"
+                data-repo-id="R_kgDOV2s05w"
+                data-category="Gypsy Jazz México"
+                data-category-id="DIC_kwDOV2s0584DLqJf"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="top"
+                data-theme="noborder_dark"
+                data-lang="es"
+                crossorigin="anonymous"
+                async>
+            </script>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Les Enfants Terribles - Jazz Manouche México.</p>
+    </footer>
 
 </body>
 </html>

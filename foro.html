@@ -131,30 +131,6 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
-        .forum-notice {
-            background: #161616;
-            border-left: 4px solid var(--primary-orange);
-            padding: 15px 18px;
-            border-radius: 6px;
-            margin-bottom: 25px;
-            font-size: 0.9rem;
-            color: var(--text-gray);
-        }
-
-        .forum-notice strong {
-            color: var(--text-light);
-        }
-
-        .forum-notice a {
-            color: var(--primary-orange);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .forum-notice a:hover {
-            text-decoration: underline;
-        }
-
         .forum-actions {
             display: flex;
             justify-content: space-between;
@@ -174,15 +150,89 @@
             border-radius: 20px;
             border: 1px solid var(--primary-orange);
             color: var(--primary-orange);
+            background: transparent;
             text-decoration: none;
             font-size: 0.85rem;
             font-weight: bold;
-            transition: background 0.2s, color 0.2s;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s, transform 0.15s;
         }
 
         .btn-outline:hover {
+            background: rgba(255, 85, 0, 0.15);
+        }
+
+        /* SELECTOR DE SALAS TEMÁTICAS */
+        .salas-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .salas-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-gray);
+            margin-bottom: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .salas-tabs {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .sala-btn {
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            background: #161616;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .sala-btn:hover {
+            border-color: var(--primary-orange);
+            color: var(--primary-orange);
+        }
+
+        .sala-btn.active {
             background: var(--primary-orange);
+            border-color: var(--primary-orange);
             color: #fff;
+            box-shadow: 0 3px 12px rgba(255, 85, 0, 0.3);
+        }
+
+        .sala-descripcion {
+            background: #161616;
+            border-left: 4px solid var(--primary-orange);
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .sala-descripcion strong {
+            color: var(--text-light);
+        }
+
+        .sala-descripcion a {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sala-descripcion a:hover {
+            text-decoration: underline;
+        }
+
+        #giscus-container {
+            min-height: 250px;
         }
 
         footer {
@@ -198,6 +248,7 @@
             h1 { font-size: 1.8rem; }
             .nav-container { flex-direction: column; align-items: flex-start; }
             .forum-box { padding: 18px; }
+            .sala-btn { flex: 1 1 calc(50% - 10px); text-align: center; }
         }
     </style>
 </head>
@@ -222,7 +273,7 @@
     <header>
         <div class="subtitle">COMUNIDAD & DISCUSIÓN</div>
         <h1>Foro Gypsy Jazz México</h1>
-        <p>Un punto de encuentro para guitarristas, contrabajistas, violinistas, alumnos de nuestros talleres y aficionados al Jazz Manouche.</p>
+        <p>Elige una sala temática para conversar con guitarristas, contrabajistas, violinistas, alumnos de nuestros talleres y aficionados al Jazz Manouche.</p>
     </header>
 
     <main class="container">
@@ -230,36 +281,85 @@
             <div class="forum-actions">
                 <a href="index.html" class="btn-outline">← Volver a la portada</a>
                 <a href="https://github.com/Enfantsterriblesmx/foro-enfants-terribles/discussions" target="_blank" rel="noopener noreferrer" class="btn-outline">
-                    Ver todas las categorías en GitHub ↗
+                    Ver todas las discusiones en GitHub ↗
                 </a>
             </div>
 
-            <div class="forum-notice">
-                <strong>¿Cómo participar?</strong> Inicia sesión con tu cuenta gratuita de GitHub en el recuadro de abajo para dejar tus comentarios, compartir <em>backing tracks</em>, preguntar sobre técnica de la <em>pompe</em> o proponer temas. Si deseas abrir un hilo independiente con título propio, haz clic en <strong>"Ver todas las categorías en GitHub"</strong>.
+            <!-- SELECTOR DE SALAS TEMÁTICAS -->
+            <div class="salas-wrapper">
+                <span class="salas-label">Selecciona una sala de conversación:</span>
+                <div class="salas-tabs">
+                    <button type="button" class="sala-btn active" onclick="cargarSala('General', this)">💬 General</button>
+                    <button type="button" class="sala-btn" onclick="cargarSala('Tecnica y Pompe', this)">🎸 Técnica y Pompe</button>
+                    <button type="button" class="sala-btn" onclick="cargarSala('Repertorio y Backing Tracks', this)">🎼 Repertorio y Backing Tracks</button>
+                    <button type="button" class="sala-btn" onclick="cargarSala('Jams y Eventos Mexico', this)">📅 Jams y Eventos</button>
+                </div>
             </div>
 
-            <!-- WIDGET DE FORO GISCUS -->
-            <script src="https://giscus.app/client.js"
-                data-repo="Enfantsterriblesmx/foro-enfants-terribles"
-                data-repo-id="R_kgDOV2s05w"
-                data-category="Gypsy Jazz México"
-                data-category-id="DIC_kwDOV2s0584DLqJf"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="top"
-                data-theme="noborder_dark"
-                data-lang="es"
-                crossorigin="anonymous"
-                async>
-            </script>
+            <!-- DESCRIPCIÓN DINÁMICA DE LA SALA ACTIVA -->
+            <div class="sala-descripcion" id="salaDescripcion">
+                <strong>Sala General:</strong> Preséntate, comparte tus proyectos de Jazz Manouche, dudas sobre luthería o cualquier tema abierto para la comunidad.
+            </div>
+
+            <!-- CONTENEDOR DINÁMICO DE GISCUS -->
+            <div id="giscus-container"></div>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2026 Les Enfants Terribles - Jazz Manouche México.</p>
     </footer>
+
+    <script>
+        const descripcionesSalas = {
+            'General': '<strong>Sala General:</strong> Preséntate, comparte tus proyectos de Jazz Manouche, dudas sobre luthería (guitarras tipo Selmer/Maccaferri, plumillas, cuerdas) o cualquier tema abierto.',
+            'Tecnica y Pompe': '<strong>Sala Técnica y Pompe:</strong> Espacio dedicado al acompañamiento rítmico (<em>la pompe</em>), arpegios disminuidos, técnica de plumilla rest-stroke y frases al estilo Django Reinhardt.',
+            'Repertorio y Backing Tracks': '<strong>Sala Repertorio y Backing Tracks:</strong> Comparte progresiones de acordes (<em>grids</em>), estándares clásicos, composiciones originales y pistas de práctica.',
+            'Jams y Eventos Mexico': '<strong>Sala Jams y Eventos:</strong> Anuncia sesiones de jam, conciertos, clínicas y encuentros de Gypsy Jazz en CDMX y toda la República.'
+        };
+
+        function cargarSala(tema, boton) {
+            // Actualizar estado visual de las pestañas
+            document.querySelectorAll('.sala-btn').forEach(btn => btn.classList.remove('active'));
+            if (boton) {
+                boton.classList.add('active');
+            }
+
+            // Actualizar texto descriptivo de la sala
+            const descBox = document.getElementById('salaDescripcion');
+            if (descripcionesSalas[tema]) {
+                descBox.innerHTML = descripcionesSalas[tema] + ' <br><small style="display:inline-block; margin-top:6px;">Inicia sesión con tu cuenta gratuita de GitHub abajo para publicar o responder.</small>';
+            }
+
+            // Limpiar el contenedor y volver a inyectar el script de Giscus con el nuevo término
+            const container = document.getElementById('giscus-container');
+            container.innerHTML = '';
+
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'Enfantsterriblesmx/foro-enfants-terribles');
+            script.setAttribute('data-repo-id', 'R_kgDOV2s05w');
+            script.setAttribute('data-category', 'Gypsy Jazz México');
+            script.setAttribute('data-category-id', 'DIC_kwDOV2s0584DLqJf');
+            script.setAttribute('data-mapping', 'specific');
+            script.setAttribute('data-term', tema);
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'top');
+            script.setAttribute('data-theme', 'noborder_dark');
+            script.setAttribute('data-lang', 'es');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.async = true;
+
+            container.appendChild(script);
+        }
+
+        // Cargar la sala "General" por defecto al abrir la página
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarSala('General', document.querySelector('.sala-btn'));
+        });
+    </script>
 
 </body>
 </html>

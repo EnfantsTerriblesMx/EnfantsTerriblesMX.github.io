@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foro y Comunidad | Les Enfants Terribles</title>
+  <!-- Enlaza aquí la misma hoja de estilos CSS que usas en tu index.html -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .foro-container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .foro-header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #333;
+      padding-bottom: 1rem;
+    }
+    .foro-reglas {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegación (misma de tu portada) -->
+  <nav>
+    <div>
+      <a href="index.html">LES ENFANTS TERRIBLES</a>
+      <ul>
+        <li><a href="index.html#acerca">Acerca</a></li>
+        <li><a href="index.html#integrantes">Integrantes</a></li>
+        <li><a href="index.html#videos">Videos</a></li>
+        <li><a href="index.html#cotizador">Cotizador</a></li>
+        <li><a href="index.html#blog">Notas</a></li>
+        <li><a href="foro.html">Foro</a></li>
+        <li><a href="index.html#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="foro-container">
+    <header class="foro-header">
+      <h1>Comunidad Jazz Manouche México</h1>
+      <p>Espacio abierto para músicos, alumnos de talleres y amantes del Gypsy Jazz. Comparte dudas de técnica, repertorio, luthería o eventos.</p>
+    </header>
+
+    <div class="foro-reglas">
+      <strong>¿Cómo participar?</strong> Inicia sesión con tu cuenta gratuita de GitHub en el recuadro de abajo para publicar, responder o reaccionar. También puedes explorar todas las categorías directamente en <a href="https://github.com/TU-USUARIO/TU-REPOSITORIO/discussions" target="_blank" rel="noopener noreferrer">nuestro tablero de discusiones</a>.
+    </div>
+
+    <!-- Contenedor donde se renderiza el foro -->
+    <section class="giscus-wrapper">
+      <!-- PEGA AQUÍ EL CÓDIGO <script> QUE GENERASTE EN GISCUS.APP -->
+      <script src="https://giscus.app/client.js"
+        data-repo="TU-USUARIO/TU-REPOSITORIO"
+        data-repo-id="TU_REPO_ID"
+        data-category="General"
+        data-category-id="TU_CATEGORY_ID"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="es"
+        crossorigin="anonymous"
+        async>
+      </script>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Les Enfants Terribles - Jazz Manouche México.</p>
+  </footer>
+
+</body>
+</html>
